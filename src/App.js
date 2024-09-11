@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState,createContext} from "react";
+import Com_f from "./Components/Com_f";
+import Com_s from "./Components/Com_s";
+import Com_t from "./Components/Com_t";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//create context
+export const userAuth =createContext({})
+
+function App(){
+   const [username,setUsername]=useState('')
+
+   return(
+  
+     
+      <userAuth.Provider value={{
+         username,
+         setUsername
+      }}>
+         <h1>App {username}</h1>
+         <Com_f />
+        
+      </userAuth.Provider>
+   )
 }
-
 export default App;
